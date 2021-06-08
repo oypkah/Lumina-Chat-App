@@ -1,5 +1,6 @@
 ﻿using LCA_Core.Entity;
 using LCA_Core.Map;
+using LCA_Model.SeedData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,7 +17,7 @@ namespace LCA_Model.Context
     {
         private readonly IHttpContextAccessor _accessor;
         public DataContext(DbContextOptions options, IHttpContextAccessor accessor)
-            :base(options)
+            : base(options)
         {
             _accessor = accessor;
         }
@@ -26,6 +27,9 @@ namespace LCA_Model.Context
             base.OnModelCreating(modelBuilder);
 
             RegisterMapping(modelBuilder);
+            modelBuilder.ApplyConfiguration(new MemberSeedData());
+            modelBuilder.ApplyConfiguration(new FriendshipSeedData());
+            modelBuilder.ApplyConfiguration(new MessageSeedData());
         }
 
         private void RegisterMapping(ModelBuilder modelBuilder)

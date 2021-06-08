@@ -7,6 +7,21 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\src\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LCA-Common\LCA-Common.csproj" />
+    <ProjectReference Include="..\LCA-Model\LCA-Model.csproj" />
+    <ProjectReference Include="..\LCA-Service\LCA-Service.csproj" />
   </ItemGroup>
 
 </Project>

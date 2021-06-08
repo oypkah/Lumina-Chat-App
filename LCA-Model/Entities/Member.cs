@@ -9,8 +9,12 @@ namespace LCA_Model.Entities
     {
         public Member()
         {
-            Messages = new HashSet<Message>();
-            Friendships = new HashSet<Friendship>();
+            SendingMessages = new HashSet<Message>();
+            ReceivingMessages = new HashSet<Message>();
+
+            FirstFriendships = new HashSet<Friendship>();
+            SecondFriendships = new HashSet<Friendship>();
+            ActionFriendships = new HashSet<Friendship>();
         }
 
         public string FirstName { get; set; }
@@ -21,12 +25,18 @@ namespace LCA_Model.Entities
         public string About { get; set; }
 
         public DateTime LastLoginDate { get; set; }
+        public DateTime LastLogoutDate { get; set; }
 
-        public int PrfilePicId { get; set; }
+        public int ProfilePicId { get; set; }
         public MembersProfilePicture MembersProfilePicture { get; set; }
 
 
-        public ICollection<Message> Messages { get; set; }
-        public ICollection<Friendship> Friendships { get; set; }
+        public ICollection<Message> SendingMessages { get; set; }
+        public ICollection<Message> ReceivingMessages { get; set; }
+
+
+        public ICollection<Friendship> FirstFriendships { get; set; }
+        public ICollection<Friendship> SecondFriendships { get; set; }
+        public ICollection<Friendship> ActionFriendships { get; set; }
     }
 }
