@@ -24,7 +24,8 @@ namespace LCA_Model.SeedData
                     ModifiedComputerName = "Admin",
                     ModifiedIp = "127.0.0.1",
                     Filename = ".jpg",
-                    Filepath = "\\src\\Images\\furkanaslan.jpg"
+                    Filepath = "http://localhost:52941/uploads/furkanaslan.jpg",
+                    MemberId = 1
                 },
                 new MembersProfilePicture
                 {
@@ -37,7 +38,9 @@ namespace LCA_Model.SeedData
                     ModifiedComputerName = "Admin",
                     ModifiedIp = "127.0.0.1",
                     Filename = ".jpg",
-                    Filepath = "\\src\\Images\\mehmetkural.jpg"
+                    Filepath = "http://localhost:52941/uploads/default.jpg",
+                    MemberId = 2
+
                 },
                 new MembersProfilePicture
                 {
@@ -50,7 +53,8 @@ namespace LCA_Model.SeedData
                     ModifiedComputerName = "Admin",
                     ModifiedIp = "127.0.0.1",
                     Filename = ".jpg",
-                    Filepath = "\\src\\Images\\kerembugra.jpg"
+                    Filepath = "http://localhost:52941/uploads/kerembugra",
+                    MemberId = 3
                 });
         }
     }

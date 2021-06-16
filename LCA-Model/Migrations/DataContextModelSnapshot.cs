@@ -19,6 +19,79 @@ namespace LCA_Model.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LCA_Model.Entities.ChatRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedComputerName")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedIp")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<int>("FriendshipId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastMessage")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("ModifiedComputerName")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedIp")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FriendshipId")
+                        .IsUnique();
+
+                    b.ToTable("ChatRooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(2892),
+                            CreatedIp = "127.0.0.1",
+                            FriendshipId = 1,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(2901),
+                            ModifiedIp = "127.0.0.1",
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(3453),
+                            CreatedIp = "127.0.0.1",
+                            FriendshipId = 2,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(3460),
+                            ModifiedIp = "127.0.0.1",
+                            Status = 1
+                        });
+                });
+
             modelBuilder.Entity("LCA_Model.Entities.Friendship", b =>
                 {
                     b.Property<int>("Id")
@@ -27,6 +100,9 @@ namespace LCA_Model.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ActionUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChatRoomId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedComputerName")
@@ -78,12 +154,13 @@ namespace LCA_Model.Migrations
                         {
                             Id = 1,
                             ActionUserId = 2,
+                            ChatRoomId = 1,
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 764, DateTimeKind.Local).AddTicks(6618),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(5551),
                             CreatedIp = "127.0.0.1",
                             FriendShipStatus = 1,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 764, DateTimeKind.Local).AddTicks(6653),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(5561),
                             ModifiedIp = "127.0.0.1",
                             Status = 0,
                             UserOneId = 1,
@@ -93,12 +170,13 @@ namespace LCA_Model.Migrations
                         {
                             Id = 2,
                             ActionUserId = 3,
+                            ChatRoomId = 2,
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 764, DateTimeKind.Local).AddTicks(8774),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(7795),
                             CreatedIp = "127.0.0.1",
                             FriendShipStatus = 1,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 764, DateTimeKind.Local).AddTicks(8782),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(7803),
                             ModifiedIp = "127.0.0.1",
                             Status = 0,
                             UserOneId = 1,
@@ -116,6 +194,9 @@ namespace LCA_Model.Migrations
                     b.Property<string>("About")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("ConnectionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedComputerName")
                         .HasMaxLength(250)
@@ -138,6 +219,9 @@ namespace LCA_Model.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("IsMemberTypingStatus")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("LastLoginDate")
                         .HasColumnType("datetime2");
 
@@ -148,6 +232,9 @@ namespace LCA_Model.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("MemberStatus")
+                        .HasColumnType("int");
 
                     b.Property<string>("ModifiedComputerName")
                         .HasMaxLength(250)
@@ -168,6 +255,9 @@ namespace LCA_Model.Migrations
                     b.Property<int>("ProfilePicId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -186,18 +276,21 @@ namespace LCA_Model.Migrations
                             Id = 1,
                             About = "hope",
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 760, DateTimeKind.Local).AddTicks(5084),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 775, DateTimeKind.Local).AddTicks(676),
                             CreatedIp = "127.0.0.1",
                             Email = "furkan_aslan2209@hotmail.com",
                             FirstName = "Furkan",
+                            IsMemberTypingStatus = 0,
                             LastLoginDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastLogoutDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Aslan",
+                            MemberStatus = 0,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 761, DateTimeKind.Local).AddTicks(8323),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 776, DateTimeKind.Local).AddTicks(4752),
                             ModifiedIp = "127.0.0.1",
                             Password = "1903",
                             ProfilePicId = 0,
+                            Role = 0,
                             Status = 0,
                             UserName = "HostGhost"
                         },
@@ -206,18 +299,21 @@ namespace LCA_Model.Migrations
                             Id = 2,
                             About = "Turkiye",
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 762, DateTimeKind.Local).AddTicks(2988),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 776, DateTimeKind.Local).AddTicks(8892),
                             CreatedIp = "127.0.0.1",
                             Email = "mehmetcankural@hotmail.com",
                             FirstName = "Mehmetcan",
+                            IsMemberTypingStatus = 0,
                             LastLoginDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastLogoutDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Kural",
+                            MemberStatus = 0,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 762, DateTimeKind.Local).AddTicks(3030),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 776, DateTimeKind.Local).AddTicks(8899),
                             ModifiedIp = "127.0.0.1",
                             Password = "1907",
                             ProfilePicId = 0,
+                            Role = 0,
                             Status = 0,
                             UserName = "DarkSouls"
                         },
@@ -226,18 +322,21 @@ namespace LCA_Model.Migrations
                             Id = 3,
                             About = "But I can't walk on the path of the right, because I'm wrong..",
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 762, DateTimeKind.Local).AddTicks(3178),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 776, DateTimeKind.Local).AddTicks(8905),
                             CreatedIp = "127.0.0.1",
                             Email = "frkkrm16@hotmail.com",
                             FirstName = "Kerem",
+                            IsMemberTypingStatus = 0,
                             LastLoginDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastLogoutDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Buğra",
+                            MemberStatus = 0,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 762, DateTimeKind.Local).AddTicks(3180),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 776, DateTimeKind.Local).AddTicks(8907),
                             ModifiedIp = "127.0.0.1",
                             Password = "1907",
                             ProfilePicId = 0,
+                            Role = 0,
                             Status = 0,
                             UserName = "frkkrm16"
                         });
@@ -292,6 +391,50 @@ namespace LCA_Model.Migrations
                         .IsUnique();
 
                     b.ToTable("MembersProfilePictures");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 778, DateTimeKind.Local).AddTicks(9121),
+                            CreatedIp = "127.0.0.1",
+                            Filename = ".jpg",
+                            Filepath = "http://localhost:52941/uploads/furkanaslan.jpg",
+                            MemberId = 1,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 778, DateTimeKind.Local).AddTicks(9147),
+                            ModifiedIp = "127.0.0.1",
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(856),
+                            CreatedIp = "127.0.0.1",
+                            Filename = ".jpg",
+                            Filepath = "http://localhost:52941/uploads/default.jpg",
+                            MemberId = 2,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(863),
+                            ModifiedIp = "127.0.0.1",
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(867),
+                            CreatedIp = "127.0.0.1",
+                            Filename = ".jpg",
+                            Filepath = "http://localhost:52941/uploads/kerembugra",
+                            MemberId = 3,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 779, DateTimeKind.Local).AddTicks(868),
+                            ModifiedIp = "127.0.0.1",
+                            Status = 0
+                        });
                 });
 
             modelBuilder.Entity("LCA_Model.Entities.Message", b =>
@@ -305,6 +448,9 @@ namespace LCA_Model.Migrations
                         .IsRequired()
                         .HasMaxLength(3000)
                         .HasColumnType("nvarchar(3000)");
+
+                    b.Property<int>("ChatRoomId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CreatedComputerName")
                         .HasMaxLength(250)
@@ -345,6 +491,8 @@ namespace LCA_Model.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ChatRoomId");
+
                     b.HasIndex("ReceivId");
 
                     b.HasIndex("SenderId");
@@ -355,19 +503,48 @@ namespace LCA_Model.Migrations
                         new
                         {
                             Id = 1,
-                            Body = "Test",
+                            Body = "Junior, nasılsın?",
+                            ChatRoomId = 1,
                             CreatedComputerName = "Admin",
-                            CreatedDate = new DateTime(2021, 6, 8, 4, 9, 15, 765, DateTimeKind.Local).AddTicks(2806),
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(8016),
                             CreatedIp = "127.0.0.1",
                             MessageImageStatus = 1,
                             MessageStatus = 1,
                             ModifiedComputerName = "Admin",
-                            ModifiedDate = new DateTime(2021, 6, 8, 4, 9, 15, 765, DateTimeKind.Local).AddTicks(2817),
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 780, DateTimeKind.Local).AddTicks(8025),
+                            ModifiedIp = "127.0.0.1",
+                            ReceivId = 1,
+                            SenderId = 3,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Body = "İyiyim, sen nasılsın?",
+                            ChatRoomId = 1,
+                            CreatedComputerName = "Admin",
+                            CreatedDate = new DateTime(2021, 6, 13, 19, 53, 42, 781, DateTimeKind.Local).AddTicks(734),
+                            CreatedIp = "127.0.0.1",
+                            MessageImageStatus = 1,
+                            MessageStatus = 1,
+                            ModifiedComputerName = "Admin",
+                            ModifiedDate = new DateTime(2021, 6, 13, 19, 53, 42, 781, DateTimeKind.Local).AddTicks(741),
                             ModifiedIp = "127.0.0.1",
                             ReceivId = 3,
                             SenderId = 1,
                             Status = 0
                         });
+                });
+
+            modelBuilder.Entity("LCA_Model.Entities.ChatRoom", b =>
+                {
+                    b.HasOne("LCA_Model.Entities.Friendship", "Friendship")
+                        .WithOne("ChatRoom")
+                        .HasForeignKey("LCA_Model.Entities.ChatRoom", "FriendshipId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Friendship");
                 });
 
             modelBuilder.Entity("LCA_Model.Entities.Friendship", b =>
@@ -402,7 +579,7 @@ namespace LCA_Model.Migrations
                     b.HasOne("LCA_Model.Entities.Member", "Member")
                         .WithOne("MembersProfilePicture")
                         .HasForeignKey("LCA_Model.Entities.MembersProfilePicture", "MemberId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Member");
@@ -410,6 +587,12 @@ namespace LCA_Model.Migrations
 
             modelBuilder.Entity("LCA_Model.Entities.Message", b =>
                 {
+                    b.HasOne("LCA_Model.Entities.ChatRoom", "ChatRoom")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatRoomId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("LCA_Model.Entities.Member", "Receiv")
                         .WithMany("ReceivingMessages")
                         .HasForeignKey("ReceivId")
@@ -422,9 +605,21 @@ namespace LCA_Model.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.Navigation("ChatRoom");
+
                     b.Navigation("Receiv");
 
                     b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("LCA_Model.Entities.ChatRoom", b =>
+                {
+                    b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("LCA_Model.Entities.Friendship", b =>
+                {
+                    b.Navigation("ChatRoom");
                 });
 
             modelBuilder.Entity("LCA_Model.Entities.Member", b =>

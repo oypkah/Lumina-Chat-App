@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LCA-Core\LCA-Core.csproj" />
+    <ProjectReference Include="..\LCA-Model\LCA-Model.csproj" />
+  </ItemGroup>
+
 </Project>

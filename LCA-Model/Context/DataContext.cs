@@ -28,7 +28,9 @@ namespace LCA_Model.Context
 
             RegisterMapping(modelBuilder);
             modelBuilder.ApplyConfiguration(new MemberSeedData());
+            modelBuilder.ApplyConfiguration(new MembersProfilePictureSeedData());
             modelBuilder.ApplyConfiguration(new FriendshipSeedData());
+            modelBuilder.ApplyConfiguration(new ChatRoomSeedData());
             modelBuilder.ApplyConfiguration(new MessageSeedData());
         }
 

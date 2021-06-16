@@ -24,11 +24,29 @@ namespace LCA_Model.SeedData
                     ModifiedDate = DateTime.Now,
                     ModifiedComputerName = "Admin",
                     ModifiedIp = "127.0.0.1",
-                    Body = "Test",
+                    Body = "Junior, nasılsın?",
+                    MessageStatus = MessageStatus.Sent,
+                    MessageImageStatus = MessageImageStatus.No,
+                    SenderId = 3,
+                    ReceivId = 1,
+                    ChatRoomId = 1
+                },
+                new Message
+                {
+                    Id = 2,
+                    Status = Status.Active,
+                    CreatedDate = DateTime.Now,
+                    CreatedComputerName = "Admin",
+                    CreatedIp = "127.0.0.1",
+                    ModifiedDate = DateTime.Now,
+                    ModifiedComputerName = "Admin",
+                    ModifiedIp = "127.0.0.1",
+                    Body = "İyiyim, sen nasılsın?",
                     MessageStatus = MessageStatus.Sent,
                     MessageImageStatus = MessageImageStatus.No,
                     SenderId = 1,
-                    ReceivId = 3
+                    ReceivId = 3,
+                    ChatRoomId = 1
                 });
         }
     }

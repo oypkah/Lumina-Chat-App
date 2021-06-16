@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCA-API", "LCA-API\LCA-API.csproj", "{EBA9831B-B976-4B7B-99A2-FDB2E7B5C707}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCA-Common", "LCA-Common\LCA-Common.csproj", "{8BED34E0-2A4D-401F-8B18-BB64692BAAE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCA-Service", "LCA-Service\LCA-Service.csproj", "{164D1F06-8EE2-4BB0-B234-168F3107CA09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCA-Core", "LCA-Core\LCA-Core.csproj", "{EC503902-7227-479C-9258-5DACE33C77D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCA-Model", "LCA-Model\LCA-Model.csproj", "{684E888D-982F-4F33-BCD2-D95CFE125B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCA-Model", "LCA-Model\LCA-Model.csproj", "{684E888D-982F-4F33-BCD2-D95CFE125B3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCA-API", "LCA-API\LCA-API.csproj", "{31E3A6A2-A669-4743-989B-075422D3485D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EBA9831B-B976-4B7B-99A2-FDB2E7B5C707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBA9831B-B976-4B7B-99A2-FDB2E7B5C707}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBA9831B-B976-4B7B-99A2-FDB2E7B5C707}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBA9831B-B976-4B7B-99A2-FDB2E7B5C707}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BED34E0-2A4D-401F-8B18-BB64692BAAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BED34E0-2A4D-401F-8B18-BB64692BAAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BED34E0-2A4D-401F-8B18-BB64692BAAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{684E888D-982F-4F33-BCD2-D95CFE125B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{684E888D-982F-4F33-BCD2-D95CFE125B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{684E888D-982F-4F33-BCD2-D95CFE125B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E3A6A2-A669-4743-989B-075422D3485D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E3A6A2-A669-4743-989B-075422D3485D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E3A6A2-A669-4743-989B-075422D3485D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E3A6A2-A669-4743-989B-075422D3485D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,5 +18,8 @@ namespace LCA_Model.Entities
 
         public int ActionUserId { get; set; }
         public Member ActionUser { get; set; }
+
+        public int ChatRoomId { get; set; }
+        public ChatRoom ChatRoom { get; set; }
     }
 }

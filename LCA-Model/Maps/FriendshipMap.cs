@@ -39,6 +39,12 @@ namespace LCA_Model.Maps
                     .WithMany(x => x.ActionFriendships)
                     .HasForeignKey(x => x.ActionUserId)
                     .OnDelete(DeleteBehavior.NoAction);
+
+                entity
+                    .HasOne(x => x.ChatRoom)
+                    .WithOne(x => x.Friendship)
+                    .HasForeignKey<ChatRoom>(x => x.FriendshipId)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
         }
     }

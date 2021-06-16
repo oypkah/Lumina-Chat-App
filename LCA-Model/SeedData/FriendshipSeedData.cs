@@ -27,7 +27,8 @@ namespace LCA_Model.SeedData
                     FriendShipStatus = FriendShipStatus.Accepted,
                     UserOneId = 1,
                     UserTwoId = 2,
-                    ActionUserId = 2
+                    ActionUserId = 2,
+                    ChatRoomId = 1
                 },
                 new Friendship
                 {
@@ -42,7 +43,8 @@ namespace LCA_Model.SeedData
                     FriendShipStatus = FriendShipStatus.Accepted,
                     UserOneId = 1,
                     UserTwoId = 3,
-                    ActionUserId = 3
+                    ActionUserId = 3,
+                    ChatRoomId = 2
                 });
         }
     }

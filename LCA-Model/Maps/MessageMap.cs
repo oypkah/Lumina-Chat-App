@@ -31,6 +31,12 @@ namespace LCA_Model.Maps
                     .WithMany(x => x.ReceivingMessages)
                     .HasForeignKey(x => x.ReceivId)
                     .OnDelete(DeleteBehavior.NoAction);
+
+                entity
+                    .HasOne(x => x.ChatRoom)
+                    .WithMany(x => x.Messages)
+                    .HasForeignKey(x => x.ChatRoomId)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
         }
     }

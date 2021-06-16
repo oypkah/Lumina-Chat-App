@@ -20,6 +20,11 @@ namespace LCA_Model.Maps
 
                 entity.Property(x => x.Filename).HasMaxLength(255).IsRequired(false);
                 entity.Property(x => x.Filepath).HasMaxLength(255).IsRequired(false);
+
+                entity
+                    .HasOne(x => x.Member)
+                    .WithOne(x => x.MembersProfilePicture)
+                    .HasForeignKey<MembersProfilePicture>(x => x.MemberId);
             });
         }
     }

@@ -7,7 +7,6 @@ namespace LCA_Model.Entities.Enums
     public enum MemberStatus
     {
         Online,
-        Offline,
-        Typing
+        Offline
     }
 }
